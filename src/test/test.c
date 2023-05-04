@@ -6602,7 +6602,7 @@ START_TEST(sprintf_big) {
   ck_assert_int_eq(sprintf(str, string, 'l', src, INT32_MAX, INT32_MIN,
                            1.234567892, UINT32_MAX),
                    my_sprintf(str1, string, 'l', src, INT32_MAX, INT32_MIN,
-                               1.234567892, UINT32_MAX));
+                              1.234567892, UINT32_MAX));
   ck_assert_str_eq(str, str1);
 }
 END_TEST
@@ -7059,8 +7059,8 @@ START_TEST(my_trim_9) {
 END_TEST
 
 int main(void) {
-  Suite *s1 = suite_create("Core");
-  TCase *tc1_1 = tcase_create("Core");
+  Suite *s1 = suite_create("my_string.h tests");
+  TCase *tc1_1 = tcase_create("Comparsions with string.h functions");
   SRunner *sr = srunner_create(s1);
   int nf;
 
@@ -7479,6 +7479,8 @@ int main(void) {
   tcase_add_test(tc1_1, my_trim_8);
   tcase_add_test(tc1_1, my_trim_9);
 
+  srunner_set_log(sr, "./test/test.log");
+  srunner_set_fork_status(sr, CK_NOFORK);
   srunner_run_all(sr, CK_ENV);
   nf = srunner_ntests_failed(sr);
   srunner_free(sr);

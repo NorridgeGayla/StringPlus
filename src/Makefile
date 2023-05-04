@@ -48,6 +48,7 @@ endif
 clean:
 	rm -f $(BUILD_DIR)/$(TARGET)
 	rm -f $(TEST_DIR)/test
+	rm -f $(TEST_DIR)/test.log
 	rm -rf coverage_results/
 	rm -f $(TEST_DIR)/*.gc*
 	lcov --directory . --zerocounters
