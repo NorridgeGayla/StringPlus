@@ -33,7 +33,6 @@ test:
 	@gcc $(CFLAGS) -g $(SRC) $(TEST_DIR)/test.c -o $(TEST_DIR)/test `pkg-config --cflags --libs check`
 	@$(TEST_DIR)/test
 
-
 gcov_report: test
 	@rm -rf coverage_results/
 	@mkdir coverage_results
